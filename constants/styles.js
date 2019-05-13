@@ -3,9 +3,7 @@ import {  StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-      display: 'flex',
-      borderWidth: 2,
-      borderColor: 'blue'
+      flex: 1,
       },
     developmentModeText: {
       marginBottom: 20,
@@ -15,18 +13,17 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
     contentContainer: {
+      flex: 3,
       justifyContent: 'center',
       alignItems: 'center',
       paddingTop: 30,
     },
     welcomeContainer: {
-        justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 2,
     },
     welcomeImage: {
-      width: 480,
-      height: 160,
+      width: 520,
+      height: 180,
       resizeMode: 'contain',
     },
     getStartedContainer: {
@@ -85,13 +82,22 @@ const styles = StyleSheet.create({
     helpLink: {
       paddingVertical: 15,
     },
-    helpLinkText: {
-      fontSize: 14,
-      color: '#2e78b7',
+    appTitle: {
+      fontSize: 32,
+      color: 'white',
+      marginBottom: 30,
     },
-    mainButton: {
-      width: 100,
-      backgroundColor: '#FF9073'
+    buttonText: {
+      fontSize: 17,
+      textAlign: 'center',
+      textTransform: 'uppercase',
+      padding: 10,
+      color: 'white',
+    },
+    mainButtonContainer: {
+      width: 150,
+      marginTop: 30,
+      backgroundColor: '#30e192'
     }
   });
 

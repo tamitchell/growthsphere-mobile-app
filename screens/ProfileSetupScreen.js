@@ -1,23 +1,44 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
-  Button,
-  Image,
-  ImageBackground,
-  Platform,
-  ScrollView,
-  StyleSheet,
   Text,
-  View,
-} from 'react-native';
+  ScrollView,
+  View
+} from "react-native";
+import { FormLabel, FormInput, FormValidationMessage, Input } from 'react-native-elements'
+import { styles } from "../constants/styles";
+
 
 class ProfileSetupScreen extends Component {
-    render() {
-      return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Details Screen</Text>
-        </View>
-      );
-    }  
+  constructor() {
+    super();
+    this.state = {
+      hairType: '',
+      hairLength: '',
+      hairDensity: '',
+      hairPorosity: ''
+    };
   }
+  render() {
+    return (
+      <View style={styles.container}>
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
+          <Text>Hello, What are your stats?</Text>
+        </View>
+        <ScrollView
+          style={styles.container}
+          contentContainerStyle={styles.contentContainer}
+        >
+          <View>
+            <FormLabel>{'Name'}</FormLabel>
+            <FormInput onChangeText={someFunction}/>
+            <FormValidationMessage>{'Error message'}</FormValidationMessage>
+          </View>
+        </ScrollView>
+      </View>
+    );
+  }
+}
 
-  export default ProfileSetupScreen;
+export default ProfileSetupScreen;
