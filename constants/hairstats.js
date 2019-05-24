@@ -80,7 +80,7 @@ const hairTypes = [
 const hairLength = [
   {
     name: "Short Hair",
-    id: 0,
+    id: 5,
     children: [
       {
         name: "Fresh Buzz",
@@ -102,7 +102,7 @@ const hairLength = [
   },
   {
     name: "Medium Hair",
-    id: 1,
+    id: 6,
     children: [
       {
         name: "Shoulder Length",
@@ -120,7 +120,7 @@ const hairLength = [
   },
   {
     name: "Long Hair",
-    id: 2,
+    id: 7,
     children: [
       {
         name: "Mid-Back Length",
@@ -146,7 +146,7 @@ const hairLength = [
   },
   {
     name: "Extremely Long Hair",
-    id: 3,
+    id: 8,
     children: [
       {
         name: "Mid-Thigh Length",
