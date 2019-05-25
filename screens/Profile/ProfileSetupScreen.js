@@ -3,6 +3,7 @@ import {Text,View} from "react-native";
 import {CheckBox} from "react-native-elements";
 import {hairTypes,hairLength} from "../../constants/hairstats";
 import MultiSelectInput from "../Profile/Form/HairTypesComponent"
+import {forms_text} from "../../constants/text.js";
 import {styles} from "../../constants/styles";
 
 class ProfileSetupScreen extends Component {
@@ -37,7 +38,7 @@ class ProfileSetupScreen extends Component {
     <View style={styles.container}>
       <Text> Hello, What are your stats ? </Text> 
       <View>
-      {MultiSelectInput(hairTypes, "Choose your hair type")}
+      {MultiSelectInput(hairTypes, forms_text.HAIR_TYPE_SELECT)}
       </View> 
       <View>
       <SectionedMultiSelect items = {hairLength}
