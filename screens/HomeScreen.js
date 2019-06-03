@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  Button,
   Image,
   ScrollView,
+  TouchableOpacity,
   Text,
   View,
 } from 'react-native';
@@ -47,10 +47,13 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
       <LinearGradient  
-        colors={['#dc7272', '#e78880', '#fbb69d']}
+        colors={['#A9C9FF', '#FFBBEC']}
         style={{flex: 1}}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
+          <View>
+            <Text style={styles.appTitle}>Growthsphere App</Text>
+          </View>
             <Image
               source={
                 __DEV__
@@ -59,9 +62,9 @@ export default class HomeScreen extends React.Component {
               }
               style={styles.welcomeImage}
             />
-          <View style={styles.helpContainer}>
-              <Button title="Start" style={styles.mainButton} onPress={() => this.props.navigation.navigate('ProfileSetup')}></Button>
-          </View>
+          <TouchableOpacity style={styles.mainButtonContainer} title="Start" onPress={() => this.props.navigation.navigate('ProfileSetup')}>
+              <Text style={styles.buttonText}>Start</Text>
+          </TouchableOpacity>
           </View>
         </ScrollView>
       </LinearGradient>
