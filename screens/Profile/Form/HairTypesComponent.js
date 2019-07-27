@@ -1,51 +1,58 @@
 import React, {Component} from "react";
-import SectionedMultiSelect from 'react-native-sectioned-multi-select';
-import {hairTypes,hairLength} from "../../constants/hairstats";
+import { hairTypes, hairLength } from '../../../constants/hairstats';
+import {MultiSelectInput} from './MultiSelectInputComponent';
+import {CheckboxInput} from './CheckboxComponent';
+import { forms_text } from "../../../constants/text";
+import { Text, View } from "react-native";
 
-class Form extends Component {
+
+export default class Form extends Component {
     constructor() {
         super();
         this.state = {
-          hairType: [],
+          hairTypes:[],
           hairLength: [],
-          hairPorosity: "",
+          hairPorosity: [],
           lowDensity: false,
           medDensity: false,
           highDensity: false,
           lowPorosity: false,
           medPorosity: false,
-          highPorosity: false,
-          isVisible: false
+          highPorosity: false
         };
       }
     
-      onSelectedItemsChange = (selectedItems) => {
+      onSelectedHairTypeChange = (selectedItems) => {
         this.setState({
-          selectedItems
+          hairTypes: selectedItems
         });
       };
+      onSelectedHairLengthChange = (selectedItems) => {
+        this.setState({
+         hairLength: selectedItems
+        });
+      };
+
+      onCheckboxToggle = (selectedItem, selectedItemParent) => {
+        this.setState({
+          selectedItemParent: !selectedItem
+        })
+      }
+
+      componentDidUpdate() {
+        console.log(this.state)
+      }
+    
+
+
       render() {
           return(
-            MultiSelectInput(hairTypes, forms_text.HAIR_TYPE_SELECT),
-            MultiSelectInput(hairLength, forms_text.HAIR_Length_SELECT)
-
-
-          );
+            <View>
+              {MultiSelectInput(hairTypes, this.state.hairTypes, forms_text.HAIR_TYPE_SELECT, this.onSelectedHairTypeChange)}
+              {MultiSelectInput(hairLength, this.state.hairLength, forms_text.HAIR_LENGTH_SELECT, this.onSelectedHairLengthChange)}
+              {CheckboxInput()}
+            </View>
+          )
       }
 }
 
-export function MultiSelectInput(items, placeholderText) {
-    return (
-    <SectionedMultiSelect 
-      items = {items}
-      uniqueKey = "id"
-      subKey = "children"
-      iconKey = "icon"
-      selectText = {placeholderText}
-      showDropDowns = {true}
-      readOnlyHeadings = {true}
-      onSelectedItemsChange = {this.onSelectedItemsChange}
-      selectedItems = {this.state.selectedItems}
-      /> 
-    )
-}
