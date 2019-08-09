@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { hairTypes, hairLength } from '../../../constants/hairstats';
 import {MultiSelectInput} from './MultiSelectInputComponent';
-import {CheckboxInput} from './CheckboxComponent';
+import { CheckBox } from "react-native-elements";
 import { forms_text } from "../../../constants/text";
 import { Text, View } from "react-native";
 
@@ -13,12 +13,16 @@ export default class Form extends Component {
           hairTypes:[],
           hairLength: [],
           hairPorosity: [],
-          lowDensity: false,
-          medDensity: false,
-          highDensity: false,
-          lowPorosity: false,
-          medPorosity: false,
-          highPorosity: false
+          checkedDensity: {
+            lowDensity: false,
+            medDensity: false,
+            highDensity: false
+          },
+          checkedPorosity: {
+            lowPorosity: false,
+            medPorosity: false,
+            highPorosity: false
+        }
         };
       }
     
@@ -33,24 +37,59 @@ export default class Form extends Component {
         });
       };
 
-      onCheckboxToggle = (selectedItem, selectedItemParent) => {
-        this.setState({
-          selectedItemParent: !selectedItem
-        })
+      onCheckedPorosity = (name) => {
+        let { checkedPorosity } = {...this.state}
+        checkedPorosity[name] = !checkedPorosity[name]
+        this.setState({checkedPorosity: checkedPorosity})
       }
 
-      componentDidUpdate() {
-        console.log(this.state)
+      onCheckedDensity = (name) => {
+        let { checkedDensity } = {...this.state}
+        checkedDensity[name] = !checkedDensity[name]
+        this.setState({checkedDensity: checkedDensity})
       }
-    
-
-
+      
+      
       render() {
           return(
             <View>
               {MultiSelectInput(hairTypes, this.state.hairTypes, forms_text.HAIR_TYPE_SELECT, this.onSelectedHairTypeChange)}
               {MultiSelectInput(hairLength, this.state.hairLength, forms_text.HAIR_LENGTH_SELECT, this.onSelectedHairLengthChange)}
-              {CheckboxInput()}
+              <View>
+                <Text>{forms_text.HAIR_POROSITY}</Text> 
+              {Object.keys(forms_text.POROSITY_LVL).map((lvl, i) => {
+                return (    
+                <View key={i}>
+                  <CheckBox center 
+                  key={lvl}
+                  title={forms_text.POROSITY_LVL[lvl]}
+                  iconRight iconType='material'
+                  checkedIcon='clear'
+                  uncheckedIcon='add'
+                  checkedColor='green'
+                  checked={this.state.checkedPorosity[lvl]}
+                  onPress={() => this.onCheckedPorosity(lvl)} />
+              </View>)
+              })}
+              </View>
+
+              <View>
+                <Text>{forms_text.HAIR_DENSITY}</Text> 
+              {Object.keys(forms_text.DENSITY_LVL).map((lvl, i) => {
+                return (    
+                <View key={i}>
+                  <CheckBox center 
+                  key={lvl}
+                  title={forms_text.DENSITY_LVL[lvl]}
+                  iconRight iconType='material'
+                  checkedIcon='clear'
+                  uncheckedIcon='add'
+                  checkedColor='green'
+                  checked={this.state.checkedDensity[lvl]}
+                  onPress={() => this.onCheckedDensity(lvl)} />
+              </View>)
+              })}
+              </View>
             </View>
           )
       }
