@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   Image,
   ScrollView,
@@ -8,9 +8,11 @@ import {
 } from 'react-native';
 import { styles } from "../constants/styles";
 import { WebBrowser, LinearGradient } from 'expo';
+import { Row, Grid} from 'react-native-easy-grid';
 
 
-export default class HomeScreen extends React.Component {
+
+export default class HomeScreen extends Component {
   static navigationOptions = {
     header: null,
   };
@@ -45,28 +47,14 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-      <LinearGradient  
-        colors={['#A9C9FF', '#FFBBEC']}
-        style={{flex: 1}}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-          <View>
-            <Text style={styles.appTitle}>Growthsphere App</Text>
-          </View>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/home-icon.png')
-                  : require('../assets/images/home-icon.png')
-              }
-              style={styles.welcomeImage}
-            />
+      <Grid style={styles.container}>
+          <Row>
+            <View style={styles.centeredContainer}>
+            <Text style={styles.title}>Growthsphere App</Text>
           <TouchableOpacity style={styles.mainButtonContainer} title="Start" onPress={() => this.props.navigation.navigate('ProfileSetup')}>
               <Text style={styles.buttonText}>Start</Text>
           </TouchableOpacity>
-          </View>
-        </ScrollView>
-      </LinearGradient>
-      </View>
+            </View>
+          </Row>
+          </Grid>
     )}};

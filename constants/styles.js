@@ -2,8 +2,54 @@ import React from 'react';
 import {  StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
+    containerFluid: {
+      backgroundColor: '#eee'
+    },
     container: {
       flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: 'blue',
+      padding: 5
+          },
+      topContainer: {
+        flex: 2,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        maxWidth: '90%',
+        height: '100%',
+        borderWidth: 1,
+        borderColor: 'blue',
+          },
+      centeredContainer: {
+        flex: 2,
+        justifyContent: 'center',
+        alignItems: 'center',
+        maxWidth: '90%',
+        height: '100%',
+        borderWidth: 1,
+        borderColor: 'green',
+          },
+      bottomContainer: {
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        width: '90%',
+        margin: 20,
+        padding: 10,
+        borderWidth: 1,
+      borderColor: 'green',
+      },
+      item: {
+        maxWidth: '80%'
+      },
+      headingContainer: {
+        flex: 0,
+        flexShrink: 1,
+        margin: 20,
+        padding: 20,
+        borderWidth: 1,
+        borderColor: 'pink',
       },
     developmentModeText: {
       marginBottom: 20,
@@ -12,19 +58,48 @@ const styles = StyleSheet.create({
       lineHeight: 19,
       textAlign: 'center',
     },
+    buttonRight: {
+      alignSelf: 'flex-end',
+      position: 'absolute',
+      bottom: 0,
+      width: 100,
+      padding: 5,
+      borderWidth: 1,
+      borderColor: 'purple',
+    },
+    buttonLeft: {
+      alignSelf: 'flex-start',
+      position: 'absolute',
+      bottom: 0,
+      width: 100,
+      padding: 5,
+      borderWidth: 1,
+      borderColor: 'purple',
+    },
+    checkedOutline: {
+      borderWidth: 2,
+      borderColor: '#30e192'
+    },
+    uncheckedOutline: {
+      borderWidth: 2,
+      borderColor: '#aaa'
+    },
     contentContainer: {
       flex: 3,
       justifyContent: 'center',
       alignItems: 'center',
       paddingTop: 30,
     },
+    nextButton: {
+      justifyContent: 'flex-end',
+      padding: 5,
+      marginTop: 30,
+    },
+    icon: {
+      paddingLeft: 5,
+    },
     welcomeContainer: {
         alignItems: 'center',
-    },
-    welcomeImage: {
-      width: 520,
-      height: 180,
-      resizeMode: 'contain',
     },
     getStartedContainer: {
       alignItems: 'center',
@@ -40,12 +115,6 @@ const styles = StyleSheet.create({
       backgroundColor: 'rgba(0,0,0,0.05)',
       borderRadius: 3,
       paddingHorizontal: 4,
-    },
-    getStartedText: {
-      fontSize: 17,
-      color: 'rgba(96,100,109, 1)',
-      lineHeight: 24,
-      textAlign: 'center',
     },
     tabBarInfoContainer: {
       position: 'absolute',
@@ -82,9 +151,9 @@ const styles = StyleSheet.create({
     helpLink: {
       paddingVertical: 15,
     },
-    appTitle: {
+    title: {
       fontSize: 32,
-      color: 'white',
+      color: '#aaa',
       marginBottom: 30,
     },
     buttonText: {

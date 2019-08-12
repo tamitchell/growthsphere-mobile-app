@@ -1,30 +1,17 @@
 import React, {Component} from "react";
 import {Text,View} from "react-native";
-import {CheckBox} from "react-native-elements";
-import Form from "../Profile/Form/HairTypesComponent"
-import {styles} from "../../constants/styles";
+import ParentForm from "./Form/ParentContainer";
 
-class ProfileSetupScreen extends Component {
+
+
+export default class ProfileSetupScreen extends Component {
   constructor() {
     super()
   }
 
-  onSelectedItemsChange = (selectedItems) => {
-    this.setState({
-      selectedItems
-    });
-  };
-
   render() {
     return ( 
-    <View style={styles.container}>
-      <Text> Hello, What are your stats ? </Text> 
-      <View>
-      {<Form />}
-      </View> 
-      </View>
+      <ParentForm/>
     );
   }
 }
-
-export default ProfileSetupScreen;
