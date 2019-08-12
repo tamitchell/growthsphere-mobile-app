@@ -1,12 +1,23 @@
 import React from "react";
 import { hairTypes, hairLength } from '../../../constants/hairstats';
 import { MultiSelectInput } from './MultiSelectInputComponent';
-import { CheckBox } from "react-native-elements";
 import { forms_text } from "../../../constants/text";
-import { Text, View , Image, ScrollView} from "react-native";
+import { Text, View , Image, ActivityIndicator} from "react-native";
 import { Icon, Button } from 'native-base';
 import { styles } from '../../../constants/styles'
 import { Row, Col, Grid } from 'react-native-easy-grid';
+
+let porosityExampleImg = {
+  lowPorosity: require('../../../assets/images/lowPorosity.png'),
+  medPorosity: require('../../../assets/images/medPorosity.png'),
+  highPorosity: require('../../../assets/images/highPorosity.png')
+}
+
+let densityExampleImg = {
+  lowDensity: require('../../../assets/images/lowDensity.png'),
+  medDensity: require('../../../assets/images/mediumDensity.png'),
+  highDensity: require('../../../assets/images/highDensity.png')
+}
 
 
 
@@ -33,13 +44,11 @@ const HairTypeDetails = (props) => {
             <View style={{width: '33%'}} key={i}>
               <Button center
                 key={lvl}
-                title={forms_text.POROSITY_LVL[lvl]}
-                containerStyle={props.values.checkedPorosity[lvl] ? styles.checkedOutline : styles.uncheckedOutline}
-                checkedIcon={null}
-                uncheckedIcon={null}
-                checkedColor={null}
-                checked={props.values.checkedPorosity[lvl]}
-                onPress={() => props.onCheckedPorosity(lvl)} />
+                style={props.values.checkedPorosity[lvl] ? styles.checkedOutline : styles.uncheckedOutline}
+                onPress={() => props.onCheckedPorosity(lvl)}>
+                  <Image style={styles.checkboxBtnImg} source={porosityExampleImg[lvl]} PlaceholderContent={<ActivityIndicator />}/>
+                  <Text style={{textAlign: 'center', width: '100%'}}>{forms_text.POROSITY_LVL[lvl]}</Text>
+                </Button>
             </View>)
         })}
         </Row>
@@ -53,15 +62,14 @@ const HairTypeDetails = (props) => {
         </Col>
         <Row style={styles.centeredContainer}>
         {Object.keys(forms_text.DENSITY_LVL).map((lvl, i) => {
-          console.log(typeof lvl)
           return (
             <View style={{width: '33%'}} key={i}>
                <Button
                 key={lvl}
                 style={props.values.checkedDensity[lvl] ? styles.checkedOutline : styles.uncheckedOutline}
                 onPress={() => props.onCheckedDensity(lvl)}>
-                  {/* <Image source={require(`../../../assets/images/${lvl}.png`)} /> */}
-                  <Text>{forms_text.DENSITY_LVL[lvl]}</Text>
+                  <Image style={styles.checkboxBtnImg} source={densityExampleImg[lvl]} PlaceholderContent={<ActivityIndicator />}/>
+                  <Text style={{textAlign: 'center', textAlignVertical: 'bottom', width: '100%'}}>{forms_text.DENSITY_LVL[lvl]}</Text>
                   </Button>
             </View>)
         })}

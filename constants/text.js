@@ -11,8 +11,8 @@ export const forms_text = {
 },
     HAIR_DENSITY: "How dense is your hair?",
     DENSITY_LVL: {
-        lowDensity: 'Low Density',
-        medDensity: 'Medium Density',
-        highDensity: 'High Density'
+        lowDensity: 'Thin',
+        medDensity: 'Medium',
+        highDensity: 'Thick'
 }
 }

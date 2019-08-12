@@ -34,11 +34,14 @@ const styles = StyleSheet.create({
       bottomContainer: {
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
+        flex: 0,
+        flexShrink: 1,
+        minHeight: 50,
         width: '90%',
         margin: 20,
         padding: 10,
         borderWidth: 1,
-      borderColor: 'green',
+        borderColor: 'green',
       },
       item: {
         maxWidth: '80%'
@@ -77,12 +80,30 @@ const styles = StyleSheet.create({
       borderColor: 'purple',
     },
     checkedOutline: {
+      backgroundColor: 'transparent',
+      width: 100,
+      height: 100,
+      padding: 5,
+      textAlign: 'center',
       borderWidth: 2,
       borderColor: '#30e192'
     },
     uncheckedOutline: {
+      backgroundColor: 'transparent',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      width: 100,
+      height: 100,
+      textAlign: 'center',
+      padding: 5,
       borderWidth: 2,
       borderColor: '#aaa'
+    },
+    checkboxBtnImg: {
+      width: 50,
+      height: 50,
+      margin: 10,
+      maxWidth: 50
     },
     contentContainer: {
       flex: 3,
