@@ -6,6 +6,7 @@ import { Text, View , Image, ActivityIndicator} from "react-native";
 import { Icon, Button } from 'native-base';
 import { styles } from '../../../constants/styles'
 import { Row, Col, Grid } from 'react-native-easy-grid';
+import ActionSheetIconExample from '../../../components/MoreInfoActionSheet'
 
 let porosityExampleImg = {
   lowPorosity: require('../../../assets/images/lowPorosity.png'),
@@ -35,8 +36,11 @@ const HairTypeDetails = (props) => {
 
       <Row>
       <View style={styles.centeredContainer}>
-        <Col style={{borderWidth: 1, borderColor: 'orange', width: '100%', padding: 10}}>
-        <Text>{forms_text.HAIR_POROSITY}</Text>
+        <Col style={{width: '100%', padding: 10}}>
+          <View style={styles.sideBySideContainer}> 
+        <Text>{forms_text.HAIR_POROSITY}</Text> 
+        <ActionSheetIconExample/>
+          </View>
         </Col>
         <Row style={styles.centeredContainer}>
         {Object.keys(forms_text.POROSITY_LVL).map((lvl, i) => {
@@ -57,7 +61,7 @@ const HairTypeDetails = (props) => {
 
       <Row>
         <View style={styles.centeredContainer}>
-        <Col  style={{borderWidth: 1, borderColor: 'orange', width: '100%', padding: 10}}>
+        <Col  style={{width: '100%', padding: 10}}>
         <Text>{forms_text.HAIR_DENSITY}</Text>
         </Col>
         <Row style={styles.centeredContainer}>

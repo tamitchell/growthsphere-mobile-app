@@ -1,5 +1,17 @@
 import React, { Component } from "react";
-import { Container, Header, Button, Content, ActionSheet, Text } from "native-base";
+import { ActionSheet, Button } from "native-base";
+import { Text, View } from "react-native";
+import {styles} from '../constants/styles';
+import Icon from 'react-native-vector-icons/FontAwesome';
+const MyButton = (
+  <Icon.Button
+    name="facebook"
+    backgroundColor="#3b5998"
+    onPress={this.loginWithFacebook}
+  >
+    Login with Facebook
+  </Icon.Button>
+);
 var BUTTONS = [
   { text: "Option 0", icon: "american-football", iconColor: "#2c8ef4" },
   { text: "Option 1", icon: "analytics", iconColor: "#f42ced" },
@@ -16,10 +28,7 @@ export default class ActionSheetIconExample extends Component {
   }
   render() {
     return (
-      <Container>
-        <Header />
-        <Content padder>
-          <Button
+          <Button style={styles.tooltipBtn}
             onPress={() =>
             ActionSheet.show(
               {
@@ -33,10 +42,8 @@ export default class ActionSheetIconExample extends Component {
               }
             )}
           >
-            <Text>Actionsheet</Text>
+            <MyButton/>
           </Button>
-        </Content>
-      </Container>
     );
   }
 }

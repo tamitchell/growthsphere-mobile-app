@@ -5,7 +5,7 @@ import { Text, View } from "react-native";
  
 export function MultiSelectInput(itemsList, selectedItems, placeholderText, onChangeFunc) {
     return (
-      <View style={{borderWidth: 1, borderColor: 'red', width: '100%'}}>
+      <View style={{width: '100%'}}>
         <SectionedMultiSelect 
           items = {itemsList}
           uniqueKey = "id"

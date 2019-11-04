@@ -9,8 +9,6 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      borderWidth: 1,
-      borderColor: 'blue',
       padding: 5
           },
       topContainer: {
@@ -18,18 +16,14 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         maxWidth: '90%',
-        height: '100%',
-        borderWidth: 1,
-        borderColor: 'blue',
+        height: '100%'
           },
       centeredContainer: {
         flex: 2,
         justifyContent: 'center',
         alignItems: 'center',
         maxWidth: '90%',
-        height: '100%',
-        borderWidth: 1,
-        borderColor: 'green',
+        height: '100%'
           },
       bottomContainer: {
         justifyContent: 'flex-end',
@@ -40,8 +34,6 @@ const styles = StyleSheet.create({
         width: '90%',
         margin: 20,
         padding: 10,
-        borderWidth: 1,
-        borderColor: 'green',
       },
       item: {
         maxWidth: '80%'
@@ -50,9 +42,7 @@ const styles = StyleSheet.create({
         flex: 0,
         flexShrink: 1,
         margin: 20,
-        padding: 20,
-        borderWidth: 1,
-        borderColor: 'pink',
+        padding: 20
       },
     developmentModeText: {
       marginBottom: 20,
@@ -66,18 +56,14 @@ const styles = StyleSheet.create({
       position: 'absolute',
       bottom: 0,
       width: 100,
-      padding: 5,
-      borderWidth: 1,
-      borderColor: 'purple',
+      padding: 5
     },
     buttonLeft: {
       alignSelf: 'flex-start',
       position: 'absolute',
       bottom: 0,
       width: 100,
-      padding: 5,
-      borderWidth: 1,
-      borderColor: 'purple',
+      padding: 5
     },
     checkedOutline: {
       backgroundColor: 'transparent',
@@ -104,6 +90,16 @@ const styles = StyleSheet.create({
       height: 50,
       margin: 10,
       maxWidth: 50
+    },
+    sideBySideContainer: {
+      flexDirection: 'row'
+    },
+    tooltipBtn: {
+      backgroundColor: '#33b5e5',
+      width: 20,
+      height: 20,
+      borderRadius: 100,
+      marginLeft: 5
     },
     contentContainer: {
       flex: 3,
